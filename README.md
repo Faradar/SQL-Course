@@ -1,5 +1,44 @@
 # Segunda Entrega del Proyecto Final
 
+## Table of Contents
+
+- [Anime Management System](#anime-management-system)
+- [Objetivo](#objetivo)
+- [Diagrama de Entidad-Relación (DER)](#diagrama-de-entidad-relación-der)
+- [Tablas 15](#tablas-15)
+  - [1. Anime](#1-anime)
+  - [2. AnimeGenres](#2-animegenres)
+  - [3. AnimeHistory](#3-animehistory)
+  - [4. AnimeStatus](#4-animestatus)
+  - [5. Author](#5-author)
+  - [6. AuthorRoles](#6-authroles)
+  - [7. AuthorRoleTypes](#7-authrolestypes)
+  - [8. Country](#8-country)
+  - [9. Episode](#9-episode)
+  - [10. EpisodeComments](#10-episodereviews)
+  - [11. Genre](#11-genre)
+  - [12. Notifications](#12-notifications)
+  - [13. Review](#13-reviews)
+  - [14. User](#14-users)
+  - [15. UserFavorites](#15-userfavorites)
+- [Funciones 5](#funciones-5)
+  - [1. GetAverageRating](#1-getaveragerating)
+  - [2. GetCountryWithMostUsers](#2-getcountrywithmostusers)
+  - [3. GetFavoriteAnimes](#3-getfavoriteanimes)
+  - [4. GetNumberOfEpisodes](#4-getnumberofepisodes)
+  - [5. GetRecentComments](#5-getrecentcomments)
+- [Stored Procedures 2](#stored-procedures-2)
+  - [1. AddAuthorToAnime](#1-addauthortoanime)
+  - [2. AssignGenreToAnime](#2-assigngenretoanime)
+- [Triggers 3](#triggers-3)
+  - [1. animeChangeHistory](#1-animechangehistory)
+  - [2. episodeDateConsistencyInsert](#2-episodedateconsistencyinsert-y-episodedateconsistencyupdate)
+  - [3. notifyNewEpisode](#3-notifynewepisode)
+- [Vistas 3](#vistas-3)
+  - [1. ComprehensiveAnimeView](#1-comprehensiveanimeview)
+  - [2. UserCountryPercentage](#2-usercountrypercentage)
+  - [3. UserFavoriteAnimes](#3-userfavoriteanimes)
+
 ## Anime Management System
 
 - Autor: Tomás Echeveste Arteaga
@@ -16,6 +55,8 @@ El "Anime Management System" es una base de datos diseñada para gestionar infor
 ![Checkout Screenshot](./img/second_DER.png)
 
 ## Tablas 15
+
+<a id="anime-table"></a>
 
 ### 1. Anime
 
