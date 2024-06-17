@@ -1,11 +1,11 @@
-# Primera Entrega del Proyecto Final
+# Segunda Entrega del Proyecto Final
 
 ## Anime Management System
 
 - Autor: Tomás Echeveste Arteaga
 - Curso: SQL
 - Comisión: 57175
-- Fecha: 19/05/24
+- Fecha: 17/06/24
 
 ## Objetivo
 
@@ -220,17 +220,7 @@ Clave Primaria: La clave primaria está compuesta por anime_id y user_id.
 
 ## Funciones 5
 
-### 1. GetNumberOfEpisodes
-
-Descripción: Esta función devuelve el número de episodios de un anime específico.
-
-Propósito: Permite conocer la cantidad de episodios disponibles para un anime determinado.
-
-Tabla que Interviene: _Episode_
-
-Objetivo: Facilitar la consulta rápida del número total de episodios asociados a un anime, útil para usuarios y administradores que deseen conocer la extensión de la serie.
-
-### 2. GetAverageRating
+### 1. GetAverageRating
 
 Descripción: Esta función devuelve la calificación promedio de un anime específico.
 
@@ -239,6 +229,16 @@ Propósito: Obtener la calificación media basada en las reseñas de los usuario
 Tabla que Interviene: _Review_
 
 Objetivo: Proveer una manera fácil de acceder a la valoración general de un anime, lo cual puede ser útil para potenciales espectadores y analistas de contenido.
+
+### 2. GetCountryWithMostUsers
+
+Descripción: Esta función devuelve el nombre del país con la mayor cantidad de usuarios registrados.
+
+Propósito: Identificar el país con la mayor base de usuarios.
+
+Tabla que Interviene: _Country_, _User_
+
+Objetivo: Ayudar en el análisis demográfico de los usuarios, útil para estrategias de marketing y mejoras en el servicio basadas en la ubicación geográfica de la mayoría de los usuarios.
 
 ### 3. GetFavoriteAnimes
 
@@ -250,7 +250,17 @@ Tabla que Interviene: _UserFavorites_, _Anime_
 
 Objetivo: Proporcionar una forma conveniente para que los usuarios vean sus animes favoritos en una lista consolidada y ordenada.
 
-### 4. GetRecentComments
+### 4. GetNumberOfEpisodes
+
+Descripción: Esta función devuelve el número de episodios de un anime específico.
+
+Propósito: Permite conocer la cantidad de episodios disponibles para un anime determinado.
+
+Tabla que Interviene: _Episode_
+
+Objetivo: Facilitar la consulta rápida del número total de episodios asociados a un anime, útil para usuarios y administradores que deseen conocer la extensión de la serie.
+
+### 5. GetRecentComments
 
 Descripción: Esta función devuelve los comentarios más recientes de un episodio específico, limitados a un número específico de comentarios.
 
@@ -259,16 +269,6 @@ Propósito: Recuperar los comentarios más recientes asociados a un episodio.
 Tabla que Interviene: _EpisodeComments_
 
 Objetivo: Permitir a los usuarios ver los comentarios más actuales sobre un episodio en particular, mejorando la interacción y el análisis del feedback recibido.
-
-### 5. GetCountryWithMostUsers
-
-Descripción: Esta función devuelve el nombre del país con la mayor cantidad de usuarios registrados.
-
-Propósito: Identificar el país con la mayor base de usuarios.
-
-Tabla que Interviene: _Country_, _User_
-
-Objetivo: Ayudar en el análisis demográfico de los usuarios, útil para estrategias de marketing y mejoras en el servicio basadas en la ubicación geográfica de la mayoría de los usuarios.
 
 ## Stored Procedures 2
 
@@ -294,7 +294,15 @@ Objetivo: Mantener la integridad de los datos al asignar géneros a animes, gara
 
 ## Triggers 3
 
-### 1. episodeDateConsistencyInsert y episodeDateConsistencyUpdate
+### 1. animeChangeHistory
+
+Descripción: Este trigger guarda un historial de los cambios realizados en la tabla Anime, como actualizaciones de título, sinopsis, estado, etc.
+
+Tablas que Intervienen: _Anime_, _AnimeHistory_
+
+Objetivo: Mantener un registro de las modificaciones en la información de los animes para auditoría y seguimiento de cambios.
+
+### 2. episodeDateConsistencyInsert y episodeDateConsistencyUpdate
 
 Descripción: Estos triggers aseguran la consistencia en las fechas de emisión de los episodios en relación con su numeración. Verifican que un episodio con un número mayor no tenga una fecha de emisión anterior a un episodio con un número menor y viceversa.
 
@@ -303,14 +311,6 @@ Propósito: Mantener la coherencia temporal entre los episodios de un anime.
 Tablas que Intervienen: _Episode_
 
 Objetivo: Evitar inconsistencias en las fechas de emisión de los episodios que podrían afectar la lógica del sistema y la experiencia del usuario.
-
-### 2. animeChangeHistory
-
-Descripción: Este trigger guarda un historial de los cambios realizados en la tabla Anime, como actualizaciones de título, sinopsis, estado, etc.
-
-Tablas que Intervienen: _Anime_, _AnimeHistory_
-
-Objetivo: Mantener un registro de las modificaciones en la información de los animes para auditoría y seguimiento de cambios.
 
 ### 3. notifyNewEpisode
 
@@ -330,18 +330,18 @@ Tablas que Intervienen: _Anime_, _Episode_, _AnimeGenres_, _Genre_, _AuthorRoles
 
 Objetivo: Facilitar el acceso a una visión consolidada y detallada de la información relevante de cada anime, combinando datos de múltiples tablas en una sola vista.
 
-### 2. UserFavoriteAnimes
-
-Descripción: Esta vista muestra los animes favoritos de cada usuario, agrupando los títulos de los animes favoritos de cada usuario en un solo campo.
-
-Tablas que Intervienen: _UserFavorites_, _User_, _Anime_
-
-Objetivo: Proveer una lista consolidada de los animes favoritos de cada usuario, facilitando la consulta de esta información.
-
-### 3. UserCountryPercentage
+### 2. UserCountryPercentage
 
 Descripción: Esta vista calcula el porcentaje de usuarios por país, mostrando el nombre del país, el número de usuarios y el porcentaje que representan del total de usuarios.
 
 Tablas que Intervienen: _User_, _Country_
 
 Objetivo: Proveer una distribución porcentual de los usuarios por país, ayudando a entender la demografía de los usuarios.
+
+### 3. UserFavoriteAnimes
+
+Descripción: Esta vista muestra los animes favoritos de cada usuario, agrupando los títulos de los animes favoritos de cada usuario en un solo campo.
+
+Tablas que Intervienen: _UserFavorites_, _User_, _Anime_
+
+Objetivo: Proveer una lista consolidada de los animes favoritos de cada usuario, facilitando la consulta de esta información.
