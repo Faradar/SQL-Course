@@ -13,7 +13,7 @@ El "Anime Management System" es una base de datos diseñada para gestionar infor
 
 ## Diagrama de Entidad-Relación (DER)
 
-![Checkout Screenshot](./img/primera_entrega_DER.png)
+![Checkout Screenshot](./img/first_DER.png)
 
 ## Tablas 12
 
@@ -194,4 +194,4 @@ Contiene los siguientes campos:
 - user_id (INT, FOREIGN KEY): Identificador del usuario.
 - anime_id (INT, FOREIGN KEY): Identificador del anime marcado como favorito por el usuario.
 
-  Clave Primaria: La clave primaria está compuesta por anime_id y user_id.
+Clave Primaria: La clave primaria está compuesta por anime_id y user_id.
