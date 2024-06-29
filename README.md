@@ -175,6 +175,10 @@ Contiene los siguientes campos:
 - **episode_air_date** (DATE): Fecha de emisión del episodio.
 - **anime_id** (INT, FOREIGN KEY REFERENCES Anime(anime_id) ON DELETE CASCADE): Identificador del anime al que pertenece el episodio.
 
+Restricciones adicionales:
+
+**UNIQUE** (**anime_id**, **episode_number**): Asegura que no haya duplicación de episodios dentro de un mismo anime, permitiendo que cada combinación de anime_id y episode_number sea única.
+
 ### 10. EpisodeComments
 
 Esta tabla almacena los comentarios de los usuarios sobre los episodios de los animes, permitiendo la interacción y discusión sobre episodios específicos.

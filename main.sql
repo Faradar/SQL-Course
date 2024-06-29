@@ -115,7 +115,8 @@ CREATE TABLE Episode (
     episode_number INT NOT NULL CHECK (episode_number >= 0),
     episode_air_date DATE,
     anime_id INT,
-    FOREIGN KEY (anime_id) REFERENCES Anime(anime_id) ON DELETE CASCADE
+    FOREIGN KEY (anime_id) REFERENCES Anime(anime_id) ON DELETE CASCADE,
+    UNIQUE (anime_id, episode_number)
 );
 
 --
