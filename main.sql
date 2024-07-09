@@ -29,7 +29,7 @@ CREATE TABLE AuthorRoleTypes (
 -- Create table Anime
 CREATE TABLE Anime (
     anime_id INT PRIMARY KEY AUTO_INCREMENT,
-    anime_title VARCHAR(255) NOT NULL,
+    anime_title VARCHAR(255) NOT NULL UNIQUE,
     anime_synopsis TEXT,
     anime_status_id INT,
     FOREIGN KEY (anime_status_id) REFERENCES AnimeStatus(status_id),
@@ -86,7 +86,7 @@ CREATE TABLE Country (
 -- Create table Author
 CREATE TABLE Author (
     author_id INT PRIMARY KEY AUTO_INCREMENT,
-    author_name VARCHAR(255) NOT NULL,
+    author_name VARCHAR(255) NOT NULL UNIQUE,
     author_birth_date DATE,
     author_country_id INT,
     FOREIGN KEY (author_country_id) REFERENCES Country(country_id) ON DELETE SET NULL,
@@ -111,7 +111,7 @@ CREATE TABLE AuthorRoles (
 -- Create table Episode
 CREATE TABLE Episode (
     episode_id INT PRIMARY KEY AUTO_INCREMENT,
-    episode_title VARCHAR(255) NOT NULL,
+    episode_title VARCHAR(255) NOT NULL UNIQUE,
     episode_number INT NOT NULL CHECK (episode_number >= 0),
     episode_air_date DATE,
     anime_id INT,
@@ -124,7 +124,7 @@ CREATE TABLE Episode (
 -- Create table User
 CREATE TABLE User (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
-    user_name VARCHAR(100) NOT NULL,
+    user_name VARCHAR(100) NOT NULL UNIQUE,
     user_email VARCHAR(255) NOT NULL UNIQUE,
     user_password VARCHAR(255) NOT NULL,
     country_id INT,

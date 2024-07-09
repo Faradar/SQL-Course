@@ -65,7 +65,7 @@ Esta tabla almacena información sobre los animes, incluyendo detalles como el t
 Contiene los siguientes campos:
 
 - **anime_id** (INT, PRIMARY KEY, AUTO_INCREMENT): Identificador único del anime.
-- **anime_title** (VARCHAR(255), NOT NULL): Título del anime.
+- **anime_title** (VARCHAR(255), NOT NULL, UNIQUE): Título del anime.
 - **anime_synopsis** (TEXT): Una breve descripción del anime.
 - **anime_status_id** (INT, FOREIGN KEY REFERENCES AnimeStatus(status_id)): Identificador del estado actual del anime.
 
@@ -118,7 +118,7 @@ Esta tabla almacena información sobre los autores relacionados con los animes, 
 Contiene los siguientes campos:
 
 - **author_id** (INT, PRIMARY KEY, AUTO_INCREMENT): Identificador único del autor.
-- **author_name** (VARCHAR(255), NOT NULL): Nombre del autor.
+- **author_name** (VARCHAR(255), NOT NULL, UNIQUE): Nombre del autor.
 - **author_birth_date** (DATE): Fecha de nacimiento del autor.
 - **author_country_id** (INT, FOREIGN KEY REFERENCES Country(country_id) ON DELETE SET NULL): Referencia al país de residencia del autor.
 
@@ -170,7 +170,7 @@ Esta tabla almacena información sobre los episodios de los animes, incluyendo e
 Contiene los siguientes campos:
 
 - **episode_id** (INT, PRIMARY KEY, AUTO_INCREMENT): Identificador único del episodio.
-- **episode_title** (VARCHAR(255), NOT NULL): Título del episodio.
+- **episode_title** (VARCHAR(255), NOT NULL, UNIQUE): Título del episodio.
 - **episode_number** (INT, NOT NULL, CHECK (episode_number >= 0)): Número del episodio en la serie.
 - **episode_air_date** (DATE): Fecha de emisión del episodio.
 - **anime_id** (INT, FOREIGN KEY REFERENCES Anime(anime_id) ON DELETE CASCADE): Identificador del anime al que pertenece el episodio.
@@ -240,7 +240,7 @@ Esta tabla almacena información sobre los usuarios del sistema, incluyendo su n
 Contiene los siguientes campos:
 
 - **user_id** (INT, PRIMARY KEY, AUTO_INCREMENT): Identificador único del usuario.
-- **user_name** (VARCHAR(100), NOT NULL): Nombre de usuario.
+- **user_name** (VARCHAR(100), NOT NULL, UNIQUE): Nombre de usuario.
 - **user_email** (VARCHAR(255), NOT NULL, UNIQUE): Correo electrónico del usuario.
 - **user_password** (VARCHAR(255), NOT NULL): Contraseña del usuario.
 - **country_id** (INT, FOREIGN KEY REFERENCES Country(country_id) ON DELETE SET NULL): Referencia al país de residencia del usuario.
