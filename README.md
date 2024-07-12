@@ -1,4 +1,4 @@
-# Segunda Entrega del Proyecto Final
+# Entrega del Proyecto Final
 
 ## Table of Contents
 
@@ -38,6 +38,7 @@
   - [1. ComprehensiveAnimeView](#1-comprehensiveanimeview)
   - [2. UserCountryPercentage](#2-usercountrypercentage)
   - [3. UserFavoriteAnimes](#3-userfavoriteanimes)
+- [Análisis de Datos](#análisis-de-datos)
 
 ## Anime Management System
 
@@ -55,8 +56,6 @@ El "Anime Management System" es una base de datos diseñada para gestionar infor
 ![Checkout Screenshot](./img/second_DER.png)
 
 ## Tablas 15
-
-<a id="anime-table"></a>
 
 ### 1. Anime
 
@@ -390,3 +389,19 @@ Descripción: Esta vista muestra los animes favoritos de cada usuario, agrupando
 Tablas que Intervienen: _UserFavorites_, _User_, _Anime_
 
 Objetivo: Proveer una lista consolidada de los animes favoritos de cada usuario, facilitando la consulta de esta información.
+
+## Análisis de Datos
+
+En esta sección se presentan dos gráficos clave que ofrecen una visión más profunda de los datos gestionados por el sistema.
+
+### 1. Animes Más Populares
+
+Este gráfico muestra los 10 animes más populares según las calificaciones promedio de los usuarios.
+
+![Animes Más Populares](./img/topAnime.png)
+
+### 2. Países con Mayor Cantidad de Usuarios
+
+Este gráfico destaca los países con la mayor cantidad de usuarios registrados en el sistema. Es útil para entender la distribución geográfica de la base de usuarios y puede ser utilizado para estrategias de marketing y expansión.
+
+![Países con Mayor Cantidad de Usuarios](./img/topCountry.png)
